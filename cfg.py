@@ -1,7 +1,5 @@
-HOST = "irc.twitch.tv"
-PORT = 6667
 NICK = "ceannfaolaidh"
-PASS = "oauth:mcuwzzp8tqbldqtiwym94xgw314tr5"
+PASS = "oauth:yggm3860gypm6wg13h1hm0sdlt70ig"
 CHAN = "#calebhart42"
 RATE = (15 / 30) # Messages per second
 

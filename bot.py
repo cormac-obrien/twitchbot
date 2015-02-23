@@ -1,4 +1,9 @@
-import cfg
+try:
+    import cfg
+    config_present = True
+except ImportError:
+    config_present = False
+
 import queue
 import re
 import socket
@@ -11,13 +16,26 @@ def msg_send(sock, message):
     sock.send((message + "\r\n").encode("utf-8"))
 
 def main():
+    (NICK, PASS, CHAN) = '', '', ''
+
+    if config_present:
+        (NICK, PASS, CHAN) =
+                cfg.NICK,
+                cfg.PASS,
+                cfg.CHAN
+    else:
+        (NICK, PASS, CHAN) =
+                raw_input("Username: "),
+                raw_input("OAuth token: "),
+                raw_input("Channel name: ")
+
     s = socket.socket()
-    s.connect((cfg.HOST, cfg.PORT))
+    s.connect(('irc.twitch.tv', 6667))
 
     send_queue = queue.PriorityQueue()
-    msg_send(s, "PASS " + cfg.PASS)
-    msg_send(s, "NICK " + cfg.NICK)
-    msg_send(s, "JOIN " + cfg.CHAN)
+    msg_send(s, "PASS " + PASS)
+    msg_send(s, "NICK " + NICK)
+    msg_send(s, "JOIN " + CHAN)
 
     while True:
         lines = s.recv(4096).decode("utf-8").split("\r\n")
