@@ -1,9 +1,9 @@
 HOST = "irc.twitch.tv"
 PORT = 6667
 NICK = "ceannfaolaidh"
-PASS = "oauth:mcuwzzp8tqbldqtiwym94xgw314tr5"
+PASS = "oauth:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 CHAN = "#calebhart42"
-RATE = (15 / 30) # Messages per second
+RATE = (100 / 30) # Messages per second
 
 PATT = [
     r"RIOT"
